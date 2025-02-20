@@ -9,18 +9,6 @@ app.use(express.json())
 app.use(cors())
 
 const port = process.env.PORT || 3001;
-/*
-    - Query params  => meusite.com/users?nome=rodolfo&age=28  // FILTROS
-    - Route params  => /user/2   // BUSCAR, DELETAR OU ATUALIZAR ALGO ESPECÍFICO
-    - Request Body  => {"name":"Rodolfo","age"}
-
-    - GET           => Buscar informação no back-end
-    - POST          => Criar informação no back-end
-    - PUT / PATCH   => Alterar/atualizar informação no back-end
-    - DELETE        => Deletar informação no back-end
-
-    - Middleware   => INTERCEPTADOR => Tem o poder de parar ou alterar dados da requisição
-*/
 
 const users = [];
 
