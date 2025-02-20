@@ -1,11 +1,14 @@
+const cors =require('cors') 
 const express = require('express')
 const uuid = require('uuid')
 
 
-const port = 3000
+
 const app = express()
 app.use(express.json())
+app.use(cors())
 
+const port = process.env.PORT || 3001;
 /*
     - Query params  => meusite.com/users?nome=rodolfo&age=28  // FILTROS
     - Route params  => /user/2   // BUSCAR, DELETAR OU ATUALIZAR ALGO ESPECÍFICO
@@ -19,7 +22,7 @@ app.use(express.json())
     - Middleware   => INTERCEPTADOR => Tem o poder de parar ou alterar dados da requisição
 */
 
-const users = []
+const users = [];
 
 const checkUserId = (request, response, next) => {
     const { id } = request.params
@@ -35,6 +38,9 @@ const checkUserId = (request, response, next) => {
 
     next()
 }
+app.get('/', (request, response) => {
+    return response.json('Hellooo world :)')
+})
 
 app.get('/users', (request, response) => {
     return response.json(users)
@@ -77,14 +83,6 @@ app.delete('/users/:id', checkUserId, (request, response) => {
 
 
 
-
-
-
-
-
-
-
-
 app.listen(port, () => {
-    console.log('🚨 server started on port 3000')
+    console.log('🚨 server started on port 3001 🚨')
 })

@@ -10,7 +10,8 @@
   "author": "jeferson-dev",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
